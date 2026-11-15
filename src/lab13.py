@@ -1,22 +1,16 @@
-# -- Початок прикладу --
-#
-# def calculate_area(side_length):
-#   """
-#   Обчислює площу квадрата за довжиною його сторони.
-#
-#   Args:
-#     side_length: Довжина сторони квадрата.
-#
-#   Returns:
-#     Площа квадрата.
-#   """
-#   if side_length < 0:
-#     raise ValueError("Довжина сторони не може бути від'ємною.")
-#   return side_length * side_length
-#
-# -- Кінець прикладу --
+"""
+Тестування (Варіант: Калькулятор)
+"""
+def add(a, b):
+    return a + b
 
+def subtract(a, b):
+    return a - b
 
-# Напишіть реалізацію вашої функції/класу тут
-# (відповідно до вашого варіанту)
-pass
+def multiply(a, b):
+    return a * b
+
+def divide(a, b):
+    if b == 0:
+        raise ValueError("Ділення на нуль неможливе.")
+    return a / b
