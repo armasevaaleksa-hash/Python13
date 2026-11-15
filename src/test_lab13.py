@@ -1,50 +1,34 @@
 import unittest
-# Імпортуйте вашу функцію/клас з файлу src.lab13
-from src.lab13 import *
+from lab13 import add, subtract, multiply, divide
 
+class TestCalculator(unittest.TestCase):
+    """Тести"""
 
-# -- Початок прикладу --
-#
-# class TestCalculateArea(unittest.TestCase):
-#   """
-#   Тести для функції calculate_area.
-#   """
-#   def test_positive_side(self):
-#     """
-#     Перевірка обчислення площі для додатного значення сторони.
-#     """
-#     self.assertEqual(calculate_area(5), 25)
-#
-#   def test_zero_side(self):
-#     """
-#     Перевірка обчислення площі для нульового значення сторони.
-#     """
-#     self.assertEqual(calculate_area(0), 0)
-#
-#   def test_negative_side(self):
-#     """
-#     Перевірка обробки від'ємного значення сторони.
-#     """
-#     with self.assertRaises(ValueError):
-#       calculate_area(-5)
-#
-# -- Кінець прикладу --
+    def test_add(self):
+        """Перевірка"""
+        self.assertEqual(add(2, 3), 5)
+        self.assertEqual(add(-1, 1), 0)
+        self.assertEqual(add(-5, -5), -10)
 
+    def test_subtract(self):
+        self.assertEqual(subtract(5, 3), 2)
+        self.assertEqual(subtract(3, 5), -2)
+        self.assertEqual(subtract(0, 0), 0)
 
-# Напишіть ваші тести тут
-# Створіть клас, що наслідується від unittest.TestCase
-# та напишіть в ньому тестові методи
-class TestStudentImplementation(unittest.TestCase):
-    def test_placeholder(self):
-        """
-        Цей тест-заглушка перевіряє, що у файлі src/lab13.py є реалізація.
-        Замініть його на власні тести.
-        """
-        # Приклад: перевірка, чи існує певна функція.
-        # self.assertTrue(callable(my_function))
-        pass
+    def test_multiply(self):
+        self.assertEqual(multiply(4, 3), 12)
+        self.assertEqual(multiply(-2, 3), -6)
+        self.assertEqual(multiply(5, 0), 0)
 
+    def test_divide(self):
+        self.assertEqual(divide(10, 2), 5.0)
+        self.assertEqual(divide(5, 2), 2.5)
+        self.assertAlmostEqual(divide(1, 3), 0.3333333333333333)
 
-# Цей блок коду дозволяє запускати тести безпосередньо з командного рядка
-if __name__ == '__main__':
+    def test_divide_by_zero(self):
+        """Перевірка обробки помилки при діленні на нуль"""
+        with self.assertRaises(ValueError):
+            divide(10, 0)
+
+if __name__ == "__main__":
     unittest.main()
